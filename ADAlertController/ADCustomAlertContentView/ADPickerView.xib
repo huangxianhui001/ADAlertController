@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ADPickerView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-xg-fTm">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5h-wo-Aju">
+                            <rect key="frame" x="189.5" y="19.5" width="35" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixV-9r-LVE">
+                            <rect key="frame" x="16" y="15" width="31" height="30"/>
+                            <state key="normal" title="关闭">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4A-do-xg4">
+                            <rect key="frame" x="367" y="15" width="31" height="30"/>
+                            <state key="normal" title="确定">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="g4A-do-xg4" firstAttribute="centerY" secondItem="bRu-xg-fTm" secondAttribute="centerY" id="6ss-Sg-zDb"/>
+                        <constraint firstItem="t5h-wo-Aju" firstAttribute="centerY" secondItem="bRu-xg-fTm" secondAttribute="centerY" id="Byx-hk-GJJ"/>
+                        <constraint firstItem="ixV-9r-LVE" firstAttribute="centerY" secondItem="bRu-xg-fTm" secondAttribute="centerY" id="DVa-p6-43Z"/>
+                        <constraint firstItem="g4A-do-xg4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t5h-wo-Aju" secondAttribute="trailing" constant="10" id="NaP-Ko-ezH"/>
+                        <constraint firstAttribute="height" constant="60" id="QaP-08-sff"/>
+                        <constraint firstItem="ixV-9r-LVE" firstAttribute="leading" secondItem="bRu-xg-fTm" secondAttribute="leading" constant="16" id="UiO-vP-OHJ"/>
+                        <constraint firstAttribute="trailing" secondItem="g4A-do-xg4" secondAttribute="trailing" constant="16" id="eh0-RJ-4x8"/>
+                        <constraint firstItem="t5h-wo-Aju" firstAttribute="centerX" secondItem="bRu-xg-fTm" secondAttribute="centerX" id="fiM-jE-kze"/>
+                        <constraint firstItem="t5h-wo-Aju" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ixV-9r-LVE" secondAttribute="trailing" constant="10" id="qmT-qC-8cn"/>
+                    </constraints>
+                </view>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-H2-fy1">
+                    <rect key="frame" x="0.0" y="60" width="414" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="1fA-pf-Bin"/>
+                    </constraints>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bRu-xg-fTm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3WW-c7-7pq"/>
+                <constraint firstItem="Air-bx-4Dv" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8TG-H2-fy1" secondAttribute="bottom" id="Nnl-Mm-evr"/>
+                <constraint firstItem="8TG-H2-fy1" firstAttribute="top" secondItem="bRu-xg-fTm" secondAttribute="bottom" id="QZC-A8-q3c"/>
+                <constraint firstItem="8TG-H2-fy1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ttc-Jh-VZl"/>
+                <constraint firstItem="bRu-xg-fTm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fAz-BV-vXL"/>
+                <constraint firstAttribute="trailing" secondItem="8TG-H2-fy1" secondAttribute="trailing" id="ksT-1G-1xe"/>
+                <constraint firstAttribute="trailing" secondItem="bRu-xg-fTm" secondAttribute="trailing" id="tO2-rJ-LvI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Air-bx-4Dv"/>
+            <connections>
+                <outlet property="cancelBtn" destination="ixV-9r-LVE" id="oaK-kr-U7N"/>
+                <outlet property="pickerView" destination="8TG-H2-fy1" id="Pz0-K3-dgm"/>
+                <outlet property="pickerViewHeight" destination="1fA-pf-Bin" id="OP1-Dm-40a"/>
+                <outlet property="sureBtn" destination="g4A-do-xg4" id="gwb-dQ-evk"/>
+                <outlet property="titleLab" destination="t5h-wo-Aju" id="pYe-dy-Wdk"/>
+                <outlet property="topViewHeight" destination="QaP-08-sff" id="b4X-fc-n1g"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
+        </view>
+    </objects>
+</document>

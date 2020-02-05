@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6AAF0B023E48B3100607F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0AF23E48B3100607F9B /* AppDelegate.m */; };
+		F6AAF0B923E48B3100607F9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF0B723E48B3100607F9B /* Main.storyboard */; };
+		F6AAF0BB23E48B3600607F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF0BA23E48B3600607F9B /* Assets.xcassets */; };
+		F6AAF0BE23E48B3600607F9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF0BC23E48B3600607F9B /* LaunchScreen.storyboard */; };
+		F6AAF0C123E48B3600607F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0C023E48B3600607F9B /* main.m */; };
+		F6AAF0CB23E48FA100607F9B /* ADAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0CA23E48FA100607F9B /* ADAlertController.m */; };
+		F6AAF0CF23E4908100607F9B /* ADAlertActionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0CE23E4908100607F9B /* ADAlertActionConfiguration.m */; };
+		F6AAF0D523E5CEBB00607F9B /* ADAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0D423E5CEBB00607F9B /* ADAlertAction.m */; };
+		F6AAF0DC23E5D68500607F9B /* ADAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0DB23E5D68500607F9B /* ADAlertButton.m */; };
+		F6AAF0DF23E5E36C00607F9B /* ADAlertImageAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0DE23E5E36C00607F9B /* ADAlertImageAction.m */; };
+		F6AAF0E223E5E5DB00607F9B /* ADAlertGroupAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0E123E5E5DB00607F9B /* ADAlertGroupAction.m */; };
+		F6AAF0E823E5E98C00607F9B /* ADScrollableGroupAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0E723E5E98C00607F9B /* ADScrollableGroupAction.m */; };
+		F6AAF0EB23E5EB4A00607F9B /* ADAlertControllerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0EA23E5EB4A00607F9B /* ADAlertControllerConfiguration.m */; };
+		F6AAF0F223E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0F123E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.m */; };
+		F6AAF0F623E5F1C000607F9B /* ADAlertViewAlertStyleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0F523E5F1C000607F9B /* ADAlertViewAlertStyleTransition.m */; };
+		F6AAF0FF23E5F49800607F9B /* ADAlertControllerPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0FE23E5F49800607F9B /* ADAlertControllerPresentationController.m */; };
+		F6AAF10223E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF10123E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.m */; };
+		F6AAF10523E5F67100607F9B /* ADAlertViewSheetStyleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF10423E5F67100607F9B /* ADAlertViewSheetStyleTransition.m */; };
+		F6AAF10B23E5F86400607F9B /* ADAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF10A23E5F86400607F9B /* ADAlertView.m */; };
+		F6AAF10E23E5F8C100607F9B /* ADAlertTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF10D23E5F8C100607F9B /* ADAlertTitleLabel.m */; };
+		F6AAF11123E5F91100607F9B /* ADAlertTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF11023E5F91100607F9B /* ADAlertTextView.m */; };
+		F6AAF11423E5FA4600607F9B /* ADActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF11323E5FA4600607F9B /* ADActionSheetView.m */; };
+		F6AAF11723E5FD2200607F9B /* ADAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF11623E5FD2200607F9B /* ADAlertWindow.m */; };
+		F6AAF11D23E6001D00607F9B /* ADAlertControllerPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF11C23E6001D00607F9B /* ADAlertControllerPriorityQueue.m */; };
+		F6AAF12023E605F600607F9B /* ADAlertController+TransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */; };
+		F6AAF12323E6F78300607F9B /* ADTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF12223E6F78300607F9B /* ADTableViewController.m */; };
+		F6AAF12623E7024800607F9B /* ADTableViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF12523E7024800607F9B /* ADTableViewData.m */; };
+		F6AAF12D23E85E1D00607F9B /* ADAdvertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF12C23E85E1D00607F9B /* ADAdvertView.m */; };
+		F6AAF12F23E85E2C00607F9B /* ADAdvertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF12E23E85E2C00607F9B /* ADAdvertView.xib */; };
+		F6AAF13223EB0EAA00607F9B /* ADPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF13123EB0EAA00607F9B /* ADPickerView.m */; };
+		F6AAF13423EB0EBD00607F9B /* ADPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF13323EB0EBD00607F9B /* ADPickerView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F6AAF0AB23E48B3100607F9B /* ADAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6AAF0AE23E48B3100607F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F6AAF0AF23E48B3100607F9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F6AAF0B823E48B3100607F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6AAF0BA23E48B3600607F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F6AAF0BD23E48B3600607F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F6AAF0BF23E48B3600607F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6AAF0C023E48B3600607F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F6AAF0C923E48FA100607F9B /* ADAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertController.h; sourceTree = "<group>"; };
+		F6AAF0CA23E48FA100607F9B /* ADAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertController.m; sourceTree = "<group>"; };
+		F6AAF0CD23E4908100607F9B /* ADAlertActionConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertActionConfiguration.h; sourceTree = "<group>"; };
+		F6AAF0CE23E4908100607F9B /* ADAlertActionConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertActionConfiguration.m; sourceTree = "<group>"; };
+		F6AAF0D023E4910C00607F9B /* ADAlertControllerConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertControllerConst.h; sourceTree = "<group>"; };
+		F6AAF0D323E5CEBB00607F9B /* ADAlertAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertAction.h; sourceTree = "<group>"; };
+		F6AAF0D423E5CEBB00607F9B /* ADAlertAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertAction.m; sourceTree = "<group>"; };
+		F6AAF0D723E5D08000607F9B /* ADAlertAction+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADAlertAction+Private.h"; sourceTree = "<group>"; };
+		F6AAF0DA23E5D68500607F9B /* ADAlertButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertButton.h; sourceTree = "<group>"; };
+		F6AAF0DB23E5D68500607F9B /* ADAlertButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertButton.m; sourceTree = "<group>"; };
+		F6AAF0DD23E5E36C00607F9B /* ADAlertImageAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertImageAction.h; sourceTree = "<group>"; };
+		F6AAF0DE23E5E36C00607F9B /* ADAlertImageAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertImageAction.m; sourceTree = "<group>"; };
+		F6AAF0E023E5E5DB00607F9B /* ADAlertGroupAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertGroupAction.h; sourceTree = "<group>"; };
+		F6AAF0E123E5E5DB00607F9B /* ADAlertGroupAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertGroupAction.m; sourceTree = "<group>"; };
+		F6AAF0E323E5E6B900607F9B /* ADAlertGroupAction+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADAlertGroupAction+Private.h"; sourceTree = "<group>"; };
+		F6AAF0E623E5E98C00607F9B /* ADScrollableGroupAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADScrollableGroupAction.h; sourceTree = "<group>"; };
+		F6AAF0E723E5E98C00607F9B /* ADScrollableGroupAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADScrollableGroupAction.m; sourceTree = "<group>"; };
+		F6AAF0E923E5EB4A00607F9B /* ADAlertControllerConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertControllerConfiguration.h; sourceTree = "<group>"; };
+		F6AAF0EA23E5EB4A00607F9B /* ADAlertControllerConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertControllerConfiguration.m; sourceTree = "<group>"; };
+		F6AAF0F023E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ADAlertControllerTopVisible.h"; sourceTree = "<group>"; };
+		F6AAF0F123E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ADAlertControllerTopVisible.m"; sourceTree = "<group>"; };
+		F6AAF0F423E5F1C000607F9B /* ADAlertViewAlertStyleTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertViewAlertStyleTransition.h; sourceTree = "<group>"; };
+		F6AAF0F523E5F1C000607F9B /* ADAlertViewAlertStyleTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertViewAlertStyleTransition.m; sourceTree = "<group>"; };
+		F6AAF0F723E5F2DD00607F9B /* ADAlertViewAlertStyleTransitionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertViewAlertStyleTransitionProtocol.h; sourceTree = "<group>"; };
+		F6AAF0FA23E5F3A700607F9B /* ADAlertControllerTransitionConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertControllerTransitionConst.h; sourceTree = "<group>"; };
+		F6AAF0FD23E5F49800607F9B /* ADAlertControllerPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertControllerPresentationController.h; sourceTree = "<group>"; };
+		F6AAF0FE23E5F49800607F9B /* ADAlertControllerPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertControllerPresentationController.m; sourceTree = "<group>"; };
+		F6AAF10023E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ADAlertControllerAdditions.h"; sourceTree = "<group>"; };
+		F6AAF10123E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ADAlertControllerAdditions.m"; sourceTree = "<group>"; };
+		F6AAF10323E5F67100607F9B /* ADAlertViewSheetStyleTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertViewSheetStyleTransition.h; sourceTree = "<group>"; };
+		F6AAF10423E5F67100607F9B /* ADAlertViewSheetStyleTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertViewSheetStyleTransition.m; sourceTree = "<group>"; };
+		F6AAF10623E5F7B100607F9B /* ADAlertControllerViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertControllerViewProtocol.h; sourceTree = "<group>"; };
+		F6AAF10923E5F86400607F9B /* ADAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertView.h; sourceTree = "<group>"; };
+		F6AAF10A23E5F86400607F9B /* ADAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertView.m; sourceTree = "<group>"; };
+		F6AAF10C23E5F8C100607F9B /* ADAlertTitleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertTitleLabel.h; sourceTree = "<group>"; };
+		F6AAF10D23E5F8C100607F9B /* ADAlertTitleLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertTitleLabel.m; sourceTree = "<group>"; };
+		F6AAF10F23E5F91100607F9B /* ADAlertTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertTextView.h; sourceTree = "<group>"; };
+		F6AAF11023E5F91100607F9B /* ADAlertTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertTextView.m; sourceTree = "<group>"; };
+		F6AAF11223E5FA4600607F9B /* ADActionSheetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADActionSheetView.h; sourceTree = "<group>"; };
+		F6AAF11323E5FA4600607F9B /* ADActionSheetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADActionSheetView.m; sourceTree = "<group>"; };
+		F6AAF11523E5FD2200607F9B /* ADAlertWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertWindow.h; sourceTree = "<group>"; };
+		F6AAF11623E5FD2200607F9B /* ADAlertWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertWindow.m; sourceTree = "<group>"; };
+		F6AAF11B23E6001D00607F9B /* ADAlertControllerPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAlertControllerPriorityQueue.h; sourceTree = "<group>"; };
+		F6AAF11C23E6001D00607F9B /* ADAlertControllerPriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAlertControllerPriorityQueue.m; sourceTree = "<group>"; };
+		F6AAF11E23E605F600607F9B /* ADAlertController+TransitioningDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADAlertController+TransitioningDelegate.h"; sourceTree = "<group>"; };
+		F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ADAlertController+TransitioningDelegate.m"; sourceTree = "<group>"; };
+		F6AAF12123E6F78300607F9B /* ADTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADTableViewController.h; sourceTree = "<group>"; };
+		F6AAF12223E6F78300607F9B /* ADTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADTableViewController.m; sourceTree = "<group>"; };
+		F6AAF12423E7024800607F9B /* ADTableViewData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADTableViewData.h; sourceTree = "<group>"; };
+		F6AAF12523E7024800607F9B /* ADTableViewData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADTableViewData.m; sourceTree = "<group>"; };
+		F6AAF12823E72CCB00607F9B /* ADCustomAlertContentViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADCustomAlertContentViewProtocol.h; sourceTree = "<group>"; };
+		F6AAF12B23E85E1D00607F9B /* ADAdvertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAdvertView.h; sourceTree = "<group>"; };
+		F6AAF12C23E85E1D00607F9B /* ADAdvertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADAdvertView.m; sourceTree = "<group>"; };
+		F6AAF12E23E85E2C00607F9B /* ADAdvertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ADAdvertView.xib; sourceTree = "<group>"; };
+		F6AAF13023EB0EAA00607F9B /* ADPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADPickerView.h; sourceTree = "<group>"; };
+		F6AAF13123EB0EAA00607F9B /* ADPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADPickerView.m; sourceTree = "<group>"; };
+		F6AAF13323EB0EBD00607F9B /* ADPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ADPickerView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6AAF0A823E48B3100607F9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6AAF0A223E48B3100607F9B = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0C723E48E4C00607F9B /* Sample */,
+				F6AAF0C823E48E8100607F9B /* Resource */,
+				F6AAF0AD23E48B3100607F9B /* ADAlertController */,
+				F6AAF0AC23E48B3100607F9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6AAF0AC23E48B3100607F9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0AB23E48B3100607F9B /* ADAlertController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6AAF0AD23E48B3100607F9B /* ADAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF12723E72BE600607F9B /* ADCustomAlertContentView */,
+				F6AAF0F323E5F1A600607F9B /* Transition */,
+				F6AAF0EC23E5EDC900607F9B /* Category */,
+				F6AAF0D623E5D06200607F9B /* Private */,
+				F6AAF0CC23E4900500607F9B /* ADTAlertAction */,
+				F6AAF0C923E48FA100607F9B /* ADAlertController.h */,
+				F6AAF0CA23E48FA100607F9B /* ADAlertController.m */,
+				F6AAF11E23E605F600607F9B /* ADAlertController+TransitioningDelegate.h */,
+				F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */,
+				F6AAF11B23E6001D00607F9B /* ADAlertControllerPriorityQueue.h */,
+				F6AAF11C23E6001D00607F9B /* ADAlertControllerPriorityQueue.m */,
+				F6AAF0CD23E4908100607F9B /* ADAlertActionConfiguration.h */,
+				F6AAF0CE23E4908100607F9B /* ADAlertActionConfiguration.m */,
+				F6AAF0E923E5EB4A00607F9B /* ADAlertControllerConfiguration.h */,
+				F6AAF0EA23E5EB4A00607F9B /* ADAlertControllerConfiguration.m */,
+				F6AAF0D023E4910C00607F9B /* ADAlertControllerConst.h */,
+			);
+			path = ADAlertController;
+			sourceTree = "<group>";
+		};
+		F6AAF0C723E48E4C00607F9B /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0AE23E48B3100607F9B /* AppDelegate.h */,
+				F6AAF0AF23E48B3100607F9B /* AppDelegate.m */,
+				F6AAF12123E6F78300607F9B /* ADTableViewController.h */,
+				F6AAF12223E6F78300607F9B /* ADTableViewController.m */,
+				F6AAF12423E7024800607F9B /* ADTableViewData.h */,
+				F6AAF12523E7024800607F9B /* ADTableViewData.m */,
+				F6AAF0B723E48B3100607F9B /* Main.storyboard */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		F6AAF0C823E48E8100607F9B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0BA23E48B3600607F9B /* Assets.xcassets */,
+				F6AAF0BF23E48B3600607F9B /* Info.plist */,
+				F6AAF0BC23E48B3600607F9B /* LaunchScreen.storyboard */,
+				F6AAF0C023E48B3600607F9B /* main.m */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F6AAF0CC23E4900500607F9B /* ADTAlertAction */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0D323E5CEBB00607F9B /* ADAlertAction.h */,
+				F6AAF0D423E5CEBB00607F9B /* ADAlertAction.m */,
+				F6AAF0DD23E5E36C00607F9B /* ADAlertImageAction.h */,
+				F6AAF0DE23E5E36C00607F9B /* ADAlertImageAction.m */,
+				F6AAF0E023E5E5DB00607F9B /* ADAlertGroupAction.h */,
+				F6AAF0E123E5E5DB00607F9B /* ADAlertGroupAction.m */,
+				F6AAF0E623E5E98C00607F9B /* ADScrollableGroupAction.h */,
+				F6AAF0E723E5E98C00607F9B /* ADScrollableGroupAction.m */,
+			);
+			path = ADTAlertAction;
+			sourceTree = "<group>";
+		};
+		F6AAF0D623E5D06200607F9B /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF11223E5FA4600607F9B /* ADActionSheetView.h */,
+				F6AAF11323E5FA4600607F9B /* ADActionSheetView.m */,
+				F6AAF0D723E5D08000607F9B /* ADAlertAction+Private.h */,
+				F6AAF0DA23E5D68500607F9B /* ADAlertButton.h */,
+				F6AAF0DB23E5D68500607F9B /* ADAlertButton.m */,
+				F6AAF10623E5F7B100607F9B /* ADAlertControllerViewProtocol.h */,
+				F6AAF0E323E5E6B900607F9B /* ADAlertGroupAction+Private.h */,
+				F6AAF10F23E5F91100607F9B /* ADAlertTextView.h */,
+				F6AAF11023E5F91100607F9B /* ADAlertTextView.m */,
+				F6AAF10C23E5F8C100607F9B /* ADAlertTitleLabel.h */,
+				F6AAF10D23E5F8C100607F9B /* ADAlertTitleLabel.m */,
+				F6AAF10923E5F86400607F9B /* ADAlertView.h */,
+				F6AAF10A23E5F86400607F9B /* ADAlertView.m */,
+				F6AAF11523E5FD2200607F9B /* ADAlertWindow.h */,
+				F6AAF11623E5FD2200607F9B /* ADAlertWindow.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		F6AAF0EC23E5EDC900607F9B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0F023E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.h */,
+				F6AAF0F123E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.m */,
+				F6AAF10023E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.h */,
+				F6AAF10123E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F6AAF0F323E5F1A600607F9B /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF0F423E5F1C000607F9B /* ADAlertViewAlertStyleTransition.h */,
+				F6AAF0F523E5F1C000607F9B /* ADAlertViewAlertStyleTransition.m */,
+				F6AAF10323E5F67100607F9B /* ADAlertViewSheetStyleTransition.h */,
+				F6AAF10423E5F67100607F9B /* ADAlertViewSheetStyleTransition.m */,
+				F6AAF0FD23E5F49800607F9B /* ADAlertControllerPresentationController.h */,
+				F6AAF0FE23E5F49800607F9B /* ADAlertControllerPresentationController.m */,
+				F6AAF0F723E5F2DD00607F9B /* ADAlertViewAlertStyleTransitionProtocol.h */,
+				F6AAF0FA23E5F3A700607F9B /* ADAlertControllerTransitionConst.h */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		F6AAF12723E72BE600607F9B /* ADCustomAlertContentView */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF12823E72CCB00607F9B /* ADCustomAlertContentViewProtocol.h */,
+				F6AAF12B23E85E1D00607F9B /* ADAdvertView.h */,
+				F6AAF12C23E85E1D00607F9B /* ADAdvertView.m */,
+				F6AAF12E23E85E2C00607F9B /* ADAdvertView.xib */,
+				F6AAF13023EB0EAA00607F9B /* ADPickerView.h */,
+				F6AAF13123EB0EAA00607F9B /* ADPickerView.m */,
+				F6AAF13323EB0EBD00607F9B /* ADPickerView.xib */,
+			);
+			path = ADCustomAlertContentView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6AAF0AA23E48B3100607F9B /* ADAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6AAF0C423E48B3600607F9B /* Build configuration list for PBXNativeTarget "ADAlertController" */;
+			buildPhases = (
+				F6AAF0A723E48B3100607F9B /* Sources */,
+				F6AAF0A823E48B3100607F9B /* Frameworks */,
+				F6AAF0A923E48B3100607F9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ADAlertController;
+			productName = ADAlertController;
+			productReference = F6AAF0AB23E48B3100607F9B /* ADAlertController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6AAF0A323E48B3100607F9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AD;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = Alan;
+				TargetAttributes = {
+					F6AAF0AA23E48B3100607F9B = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = F6AAF0A623E48B3100607F9B /* Build configuration list for PBXProject "ADAlertController" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F6AAF0A223E48B3100607F9B;
+			productRefGroup = F6AAF0AC23E48B3100607F9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6AAF0AA23E48B3100607F9B /* ADAlertController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6AAF0A923E48B3100607F9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6AAF0BE23E48B3600607F9B /* LaunchScreen.storyboard in Resources */,
+				F6AAF0BB23E48B3600607F9B /* Assets.xcassets in Resources */,
+				F6AAF13423EB0EBD00607F9B /* ADPickerView.xib in Resources */,
+				F6AAF0B923E48B3100607F9B /* Main.storyboard in Resources */,
+				F6AAF12F23E85E2C00607F9B /* ADAdvertView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6AAF0A723E48B3100607F9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6AAF10523E5F67100607F9B /* ADAlertViewSheetStyleTransition.m in Sources */,
+				F6AAF10B23E5F86400607F9B /* ADAlertView.m in Sources */,
+				F6AAF0E223E5E5DB00607F9B /* ADAlertGroupAction.m in Sources */,
+				F6AAF10223E5F4FF00607F9B /* UIView+ADAlertControllerAdditions.m in Sources */,
+				F6AAF11123E5F91100607F9B /* ADAlertTextView.m in Sources */,
+				F6AAF0EB23E5EB4A00607F9B /* ADAlertControllerConfiguration.m in Sources */,
+				F6AAF0D523E5CEBB00607F9B /* ADAlertAction.m in Sources */,
+				F6AAF0FF23E5F49800607F9B /* ADAlertControllerPresentationController.m in Sources */,
+				F6AAF11723E5FD2200607F9B /* ADAlertWindow.m in Sources */,
+				F6AAF0B023E48B3100607F9B /* AppDelegate.m in Sources */,
+				F6AAF10E23E5F8C100607F9B /* ADAlertTitleLabel.m in Sources */,
+				F6AAF12023E605F600607F9B /* ADAlertController+TransitioningDelegate.m in Sources */,
+				F6AAF0C123E48B3600607F9B /* main.m in Sources */,
+				F6AAF12623E7024800607F9B /* ADTableViewData.m in Sources */,
+				F6AAF11423E5FA4600607F9B /* ADActionSheetView.m in Sources */,
+				F6AAF0E823E5E98C00607F9B /* ADScrollableGroupAction.m in Sources */,
+				F6AAF0CF23E4908100607F9B /* ADAlertActionConfiguration.m in Sources */,
+				F6AAF0DF23E5E36C00607F9B /* ADAlertImageAction.m in Sources */,
+				F6AAF12D23E85E1D00607F9B /* ADAdvertView.m in Sources */,
+				F6AAF0DC23E5D68500607F9B /* ADAlertButton.m in Sources */,
+				F6AAF0CB23E48FA100607F9B /* ADAlertController.m in Sources */,
+				F6AAF0F623E5F1C000607F9B /* ADAlertViewAlertStyleTransition.m in Sources */,
+				F6AAF11D23E6001D00607F9B /* ADAlertControllerPriorityQueue.m in Sources */,
+				F6AAF13223EB0EAA00607F9B /* ADPickerView.m in Sources */,
+				F6AAF12323E6F78300607F9B /* ADTableViewController.m in Sources */,
+				F6AAF0F223E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F6AAF0B723E48B3100607F9B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6AAF0B823E48B3100607F9B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F6AAF0BC23E48B3600607F9B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6AAF0BD23E48B3600607F9B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F6AAF0C223E48B3600607F9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F6AAF0C323E48B3600607F9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6AAF0C523E48B3600607F9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alan.ADAlertController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F6AAF0C623E48B3600607F9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alan.ADAlertController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6AAF0A623E48B3100607F9B /* Build configuration list for PBXProject "ADAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6AAF0C223E48B3600607F9B /* Debug */,
+				F6AAF0C323E48B3600607F9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6AAF0C423E48B3600607F9B /* Build configuration list for PBXNativeTarget "ADAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6AAF0C523E48B3600607F9B /* Debug */,
+				F6AAF0C623E48B3600607F9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6AAF0A323E48B3100607F9B /* Project object */;
+}
