@@ -7,25 +7,25 @@
 //
 
 #import "ADAlertController.h"
+#import "ADAlertController+Private.h"
 #import "ADAlertController+TransitioningDelegate.h"
 #import "ADAlertControllerPresentationController.h"
 #import "ADAlertViewAlertStyleTransitionProtocol.h"
 #import "ADAlertControllerConfiguration.h"
-#import "UIViewController+ADAlertControllerTopVisible.h"
 #import "ADAlertView.h"
 #import "ADActionSheetView.h"
 #import "ADAlertAction+Private.h"
 #import "ADAlertGroupAction+Private.h"
 #import "ADAlertWindow.h"
+#import "ADAlertControllerPriorityQueue.h"
 
-@interface ADAlertController ()<UIGestureRecognizerDelegate,ADAlertViewAlertStyleTransitionProtocol>
+@interface ADAlertController ()<ADAlertViewAlertStyleTransitionProtocol>
 @property (weak, nonatomic) ADAlertWindow *alertWindow;
 
 @property UIView<ADAlertControllerViewProtocol> *view;
 
 ///拖动手势,用于在 alert类型时,拖动移动 alert 内容
 @property UIPanGestureRecognizer *panGestureRecognizer;
-- (void)panGestureRecognized:(UIPanGestureRecognizer *)gestureRecognizer;
 
 @property (strong, nonatomic) ADAlertControllerConfiguration *configuration;
 
@@ -33,26 +33,32 @@
 @property (strong, nonatomic) ADAlertAction *actionSheetCancelAction;
 @end
 
+@interface ADAlertController (GestureRecognizerDelegate)<UIGestureRecognizerDelegate>
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)gestureRecognizer;
+
+@end
+
 @implementation ADAlertController
 @dynamic view;
 @dynamic maximumWidth;
 @dynamic alertViewContentView;
 @dynamic message;
+
 @synthesize moveoutScreen;
 
-- (BOOL)canShow
-{
-    UIViewController *topVisibleVC = [UIViewController ad_topVisibleViewController];
-    if ([topVisibleVC isKindOfClass:[UIAlertController class]]) {
-        return NO;
-    }
-
-    return YES;
-}
+@synthesize alertPriority;
+@synthesize targetViewController;
+@synthesize autoHidenWhenInsertSamePriority;
+@synthesize autoHidenWhenTargetViewControllerDisappear;
 
 - (void)dealloc
 {
-//    NSLog(@"%@ delloc",NSStringFromClass(self.class));
+    NSLog(@"%@ delloc",NSStringFromClass(self.class));
+}
+
+- (BOOL) willDealloc{
+    return self.deleteWhenHiden;
 }
 
 - (instancetype)initWithOptions:(ADAlertControllerConfiguration *)configuration
@@ -75,6 +81,9 @@
             self.panGestureRecognizer.enabled = configuration.swipeDismissalGestureEnabled;
             [self.view addGestureRecognizer:self.panGestureRecognizer];
         }
+        
+        self.deleteWhenHiden = YES;
+        autoHidenWhenTargetViewControllerDisappear = YES;
         
         [self setTitle:title];
         [self setMessage:message];
@@ -123,7 +132,134 @@
     [self.view addCancelView:self.actionSheetCancelAction.view];
 }
 
+#pragma mark - public
+- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler {
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    
+    if (configurationHandler) {
+        configurationHandler(textField);
+    }
+    
+    _textFields = [self.textFields arrayByAddingObject:textField];
+}
+
+- (void)addActionSheetCancelAction:(ADAlertAction *)cancelAction
+{
+    self.actionSheetCancelAction = cancelAction;
+    self.actionSheetCancelAction.viewController = self;
+    if ([cancelAction isKindOfClass:[ADAlertGroupAction class]]) {
+        ((ADAlertGroupAction *)cancelAction).separatorColor = self.configuration.separatorColor;
+        ((ADAlertGroupAction *)cancelAction).showsSeparators = self.configuration.showsSeparators;
+    }
+}
+
+#pragma mark - ADAlertControllerBaseProtocol
+
+- (void)show
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.donotShow) {
+            //复位donotShow
+            self.donotShow = NO;
+            self.didDismissBlock(self);
+            //deleteWhenHiden 需放到 block后面
+            self.deleteWhenHiden = YES;
+            return ;
+        }
+        //每次显示时,重置为 YES
+        self.deleteWhenHiden = YES;
+        
+        ADAlertWindow *alertWindow = [ADAlertWindow window];
+        self.alertWindow = alertWindow;
+        [alertWindow presentViewController:self completion:nil];
+     
+    });
+}
+
+- (void)hiden{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - ADAlertControllerPriorityQueueProtocol
+
+- (void)enqueue {
+    [ADAlertControllerPriorityQueue inset:self];
+}
+
++ (void)cleanQueueAllObject
+{
+    [ADAlertControllerPriorityQueue cleanQueueAllObject];
+}
+
+#pragma mark - private
+
+- (BOOL)isShow
+{
+    return self.presentingViewController;
+}
+
+- (void)clearUp
+{
+    self.alertWindow.hidden = YES;
+    [self.alertWindow cleanUpWithViewController:self];
+    
+    !self.didDismissBlock ?:self.didDismissBlock(self);
+}
+
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    if (self.presentingViewController) {
+        [super dismissViewControllerAnimated:flag completion:^(){
+            if (completion) {
+                completion();
+            }
+            [self clearUp];
+        }];
+    }else{
+        [self clearUp];
+    }
+}
+
+#pragma mark - Getters/Setters
+
+- (CGFloat)maximumWidth {
+    return self.view.maximumWidth;
+}
+
+- (void)setMaximumWidth:(CGFloat)maximumWidth {
+    self.view.maximumWidth = maximumWidth;
+}
+
+- (UIView *)alertViewContentView {
+    return self.view.contentView;
+}
+
+- (void)setAlertViewContentView:(UIView *)alertViewContentView {
+    self.view.contentView = alertViewContentView;
+}
+
+- (void)setTitle:(NSString *)title {
+    [super setTitle:title];
+    
+    self.view.title = title;
+}
+
+- (void)setMessage:(NSString *)message {
+    self.view.message = message;
+}
+
+-(NSString *)message
+{
+    return self.view.message;
+}
+
+@end
+
+@implementation ADAlertController (GestureRecognizerDelegate)
+
 #pragma mark - panGestureRecognized
+
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)gestureRecognizer {
     if ([self.view isKindOfClass:[ADAlertView class]]) {
         ADAlertView *view = (ADAlertView *)self.view;
@@ -185,100 +321,6 @@
     }
 }
 
-#pragma mark - public
-- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler {
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    
-    if (configurationHandler) {
-        configurationHandler(textField);
-    }
-    
-    _textFields = [self.textFields arrayByAddingObject:textField];
-}
-
-- (void)addActionSheetCancelAction:(ADAlertAction *)cancelAction
-{
-    self.actionSheetCancelAction = cancelAction;
-    self.actionSheetCancelAction.viewController = self;
-    if ([cancelAction isKindOfClass:[ADAlertGroupAction class]]) {
-        ((ADAlertGroupAction *)cancelAction).separatorColor = self.configuration.separatorColor;
-        ((ADAlertGroupAction *)cancelAction).showsSeparators = self.configuration.showsSeparators;
-    }
-}
-
-#pragma mark - Getters/Setters
-
-- (CGFloat)maximumWidth {
-    return self.view.maximumWidth;
-}
-
-- (void)setMaximumWidth:(CGFloat)maximumWidth {
-    self.view.maximumWidth = maximumWidth;
-}
-
-- (UIView *)alertViewContentView {
-    return self.view.contentView;
-}
-
-- (void)setAlertViewContentView:(UIView *)alertViewContentView {
-    self.view.contentView = alertViewContentView;
-}
-
-- (void)setTitle:(NSString *)title {
-    [super setTitle:title];
-    
-    self.view.title = title;
-}
-
-- (void)setMessage:(NSString *)message {
-    self.view.message = message;
-}
-
--(NSString *)message
-{
-    return self.view.message;
-}
-
-#pragma mark - ADAlertViewControllerQueueProtocol
-- (void)show
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        ADAlertWindow *alertWindow = [ADAlertWindow window];
-        self.alertWindow = alertWindow;
-        [alertWindow presentViewController:self completion:nil];
-    });
-}
-
-- (BOOL)isShow
-{
-    return self.presentingViewController;
-}
-
-- (void)hiden{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)clearUp
-{
-    self.alertWindow.hidden = YES;
-    [self.alertWindow cleanUpWithViewController:self];
-}
-
-- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
-{
-    if (self.presentingViewController) {
-        [super dismissViewControllerAnimated:flag completion:^(){
-            if (completion) {
-                completion();
-            }
-            [self clearUp];
-        }];
-    }else{
-        [self clearUp];
-    }
-}
-
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -289,5 +331,4 @@
     
     return YES;
 }
-
 @end

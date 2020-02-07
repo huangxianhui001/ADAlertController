@@ -13,11 +13,11 @@
 #import "ADScrollableGroupAction.h"
 #import "ADAlertControllerConst.h"
 #import "ADAlertControllerConfiguration.h"
-#import "ADAlertControllerPriorityQueue.h"
+#import "ADPriorityQueueProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ADAlertController : UIViewController
+@interface ADAlertController : UIViewController<ADAlertControllerPriorityQueueProtocol>
 
 /// 指定构造器,根据配置,标题,内容,按钮数组等初始化警告框对象
 /// @param configuration 配置对象,可为 nil,默认是[ADAlertControllerConfiguration defaultConfigurationWithPreferredStyle:ADAlertControllerStyleAlert]
@@ -87,10 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)addActionSheetCancelAction:(ADAlertAction *_Nullable)cancelAction;
 
-
-- (void)show;
-
-- (void)hiden;
 @end
 
 NS_ASSUME_NONNULL_END

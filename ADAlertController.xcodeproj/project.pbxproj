@@ -38,6 +38,7 @@
 		F6AAF12F23E85E2C00607F9B /* ADAdvertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF12E23E85E2C00607F9B /* ADAdvertView.xib */; };
 		F6AAF13223EB0EAA00607F9B /* ADPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF13123EB0EAA00607F9B /* ADPickerView.m */; };
 		F6AAF13423EB0EBD00607F9B /* ADPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF13323EB0EBD00607F9B /* ADPickerView.xib */; };
+		F6AAF13F23ED91A100607F9B /* ADAlertController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF13E23ED91A100607F9B /* ADAlertController+Private.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,9 @@
 		F6AAF13023EB0EAA00607F9B /* ADPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADPickerView.h; sourceTree = "<group>"; };
 		F6AAF13123EB0EAA00607F9B /* ADPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADPickerView.m; sourceTree = "<group>"; };
 		F6AAF13323EB0EBD00607F9B /* ADPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ADPickerView.xib; sourceTree = "<group>"; };
+		F6AAF13523EC4ABA00607F9B /* ADPriorityQueueProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADPriorityQueueProtocol.h; sourceTree = "<group>"; };
+		F6AAF13D23ED91A100607F9B /* ADAlertController+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADAlertController+Private.h"; sourceTree = "<group>"; };
+		F6AAF13E23ED91A100607F9B /* ADAlertController+Private.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ADAlertController+Private.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 				F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */,
 				F6AAF11B23E6001D00607F9B /* ADAlertControllerPriorityQueue.h */,
 				F6AAF11C23E6001D00607F9B /* ADAlertControllerPriorityQueue.m */,
+				F6AAF13523EC4ABA00607F9B /* ADPriorityQueueProtocol.h */,
 				F6AAF0CD23E4908100607F9B /* ADAlertActionConfiguration.h */,
 				F6AAF0CE23E4908100607F9B /* ADAlertActionConfiguration.m */,
 				F6AAF0E923E5EB4A00607F9B /* ADAlertControllerConfiguration.h */,
@@ -218,6 +223,8 @@
 				F6AAF10A23E5F86400607F9B /* ADAlertView.m */,
 				F6AAF11523E5FD2200607F9B /* ADAlertWindow.h */,
 				F6AAF11623E5FD2200607F9B /* ADAlertWindow.m */,
+				F6AAF13D23ED91A100607F9B /* ADAlertController+Private.h */,
+				F6AAF13E23ED91A100607F9B /* ADAlertController+Private.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -344,6 +351,7 @@
 				F6AAF0D523E5CEBB00607F9B /* ADAlertAction.m in Sources */,
 				F6AAF0FF23E5F49800607F9B /* ADAlertControllerPresentationController.m in Sources */,
 				F6AAF11723E5FD2200607F9B /* ADAlertWindow.m in Sources */,
+				F6AAF13F23ED91A100607F9B /* ADAlertController+Private.m in Sources */,
 				F6AAF0B023E48B3100607F9B /* AppDelegate.m in Sources */,
 				F6AAF10E23E5F8C100607F9B /* ADAlertTitleLabel.m in Sources */,
 				F6AAF12023E605F600607F9B /* ADAlertController+TransitioningDelegate.m in Sources */,
