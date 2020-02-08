@@ -38,7 +38,7 @@ typedef NS_ENUM(NSUInteger, ADAlertPriority) {
 @property (assign, nonatomic) ADAlertPriority alertPriority;
  
 ///当插入一个同优先级的 alertController 时,当前 alertController是否自动隐藏,
-///一般配合deleteWhenHiden使用,使当前 自动隐藏的alertController后面还有机会显示,默认 NO
+///一般配合deleteWhenHiden使用,使当前自动隐藏的alertController后面还有机会显示,默认 NO
 @property (nonatomic, assign) BOOL autoHidenWhenInsertSamePriority;
 
 ///当前alertController是否仅在targetViewController为最顶部的控制器时才显示,

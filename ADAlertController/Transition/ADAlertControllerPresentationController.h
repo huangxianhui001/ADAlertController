@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property UIColor *backgroundColor;
 @property (nonatomic, readonly) UIView *backgroundView;
 ///背景是否毛玻璃,暂未实现
-@property BOOL  backgroundViewBlurEffects;
+//@property BOOL  backgroundViewBlurEffects;
 @end
 
 NS_ASSUME_NONNULL_END

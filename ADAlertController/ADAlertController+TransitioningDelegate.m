@@ -22,7 +22,7 @@
                                                                                                                   presentingViewController:presenting];
     presentationController.hidenWhenTapBackground = self.configuration.hidenWhenTapBackground;
     presentationController.backgroundColor = self.configuration.alertMaskViewBackgroundColor;
-    presentationController.backgroundViewBlurEffects = self.configuration.backgroundViewBlurEffects;
+//    presentationController.backgroundViewBlurEffects = self.configuration.backgroundViewBlurEffects;
     return presentationController;
 }
 

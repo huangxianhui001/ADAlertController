@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 警告框的 UI 配置
-@interface ADAlertControllerConfiguration : NSObject
+@interface ADAlertControllerConfiguration : NSObject<NSCopying>
 
 /**
  alertController 类型,默认 alert类型
@@ -91,9 +91,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UIFont *messageFont;
 
 /**
- 背景是否需要模糊效果,默认YES,
+ 背景是否需要模糊效果,默认YES,未实现
  */
-@property (assign, nonatomic) BOOL backgroundViewBlurEffects;
+//@property (assign, nonatomic) BOOL backgroundViewBlurEffects;
+
 /**
  根据alertview 类型,生成不同配置对象
 

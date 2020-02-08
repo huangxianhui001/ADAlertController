@@ -35,7 +35,7 @@
     config.separatorColor = [UIColor lightGrayColor];
     config.titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     config.messageFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    config.backgroundViewBlurEffects = YES;
+//    config.backgroundViewBlurEffects = YES;
     return config;
 }
 
@@ -57,7 +57,7 @@
     config.messageTextInset = self.messageTextInset;
     config.titleFont = self.titleFont;
     config.messageFont = self.messageFont;
-    config.backgroundViewBlurEffects = self.backgroundViewBlurEffects;
+//    config.backgroundViewBlurEffects = self.backgroundViewBlurEffects;
     return config;
 }
 @end

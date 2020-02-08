@@ -36,16 +36,15 @@
 - (BOOL)canShow
 {
     UIViewController *topVisibleVC = [UIViewController ad_topVisibleViewController];
-    /*
-     在其他地方已经有此判断了
-    if ([topVisibleVC isKindOfClass:[UIAlertController class]]) {
-        return NO;
-    }
-    */
     if (self.targetViewController) {
         return topVisibleVC == self.targetViewController;
     }
     return YES;
+}
+
+- (BOOL)isShow
+{
+    return self.presentingViewController;
 }
 
 - (void)setDonotShow:(BOOL)donotShow
