@@ -19,7 +19,7 @@
 ///因为插入时是将元素插入到队列的末尾,在上滤的过程中,为了保持父子节点的次序与插入顺序保持同样的次序
 ///在父子节点进行比较时,只要父节点的优先级是不小于子节点的,即认为此时已经满足了堆序性
 ///在删除最大节点时,是直接将最末尾的节点放到最开始的位置,然后执行下滤过程,这里同样为了保持插入的次序
-///在完成最大堆后能够保持不变,在下滤的比较就需要子节点必须小于父节点,否则就需要交换,故此,在childCompareParentBlock的比较中,需要加入是否上滤的条件
+///在完成最大堆后能够保持不变,在下滤的比较就需要子节点必须小于父节点,否则就需要交换,故此,在ChildCompareParentBlock的比较中,需要加入是否上滤的条件
 
 
 ///比较父节点是否大于子节点,第一个参数为子节点,第二个参数为父节点,第三个为是否上滤
@@ -32,7 +32,8 @@ typedef id<ADAlertControllerPriorityQueueProtocol> (^SearchProperParentBlock)(id
 @interface UIViewController(ADAlertControllerQueueSupport)
 - (void)alertController_viewDidAppear:(BOOL)animated;
 
-+ (BOOL)isShowUIAlertController;
+///是否正在显示黑名单里面的控制器
++ (BOOL)isShowBlackListController;
 
 @end
 
@@ -155,26 +156,54 @@ typedef id<ADAlertControllerPriorityQueueProtocol> (^SearchProperParentBlock)(id
 
 - (void)showNext
 {
-    if (![UIViewController isShowUIAlertController]) {
-        //这里默认是在显示 UIAlertController 时,不再弹出 alertController 的
+    if (![UIViewController isShowBlackListController]) {
         ADAlertController *nextAlertController = (ADAlertController *)[ADAlertControllerPriorityQueue getMax];
-        NSUInteger nextIndex = 0;
-        
-        while (![nextAlertController canShow]) {
-            //继续遍历队列中的元素
-            nextIndex++;
-            if (nextIndex >= self.queue.count) {
-                break;
-            }else{
-                nextAlertController = (ADAlertController *)self.queue[nextIndex];
+        if (nextAlertController) {
+            NSUInteger parentIndex = 0;
+            NSUInteger childIndex = 0;
+            while (![nextAlertController canShow]) {
+                childIndex = [self fineBestChildIndexWithParentIndex:parentIndex];
+                nextAlertController = (ADAlertController *)self.queue[childIndex];
+                
+                //继续遍历队列中的元素
+                parentIndex++;
+                if (parentIndex >= self.queue.count) {
+                    break;
+                }
             }
-        }
-        if ([nextAlertController canShow]) {
-            self.currentAlertController = nextAlertController;
-            [self insertOperationToShowAlertController];
+            if ([nextAlertController canShow]) {
+                self.currentAlertController = nextAlertController;
+                [self insertOperationToShowAlertController];
+                
+            }
             
         }
     }
+}
+
+/// 寻找最佳的孩子下标,若同时有左右孩子,会比较左右孩子的优先级,以及入队列时间,
+/// 若左右孩子都不可用,返回父节点下标
+/// @param index 父节点下标
+- (NSUInteger)fineBestChildIndexWithParentIndex:(NSUInteger)index
+{
+    //当前 index 的左孩子下标
+    NSUInteger lc = LChild(index);
+    //当前 index 的右孩子下标
+    NSUInteger rc = RChild(index);
+
+    //1.判断当前节点的左右孩子都存在
+    if (lc < self.queue.count && rc < self.queue.count) {
+        //左右孩子都存在,与下滤操作中一样,取出适合的当父亲节点的那个下标
+        id<ADAlertControllerPriorityQueueProtocol> lcObject = self.queue[lc];
+        id<ADAlertControllerPriorityQueueProtocol> rcObject = self.queue[rc];
+        id<ADAlertControllerPriorityQueueProtocol> properParentObject = self.searchProperParentBlock(lcObject,rcObject);
+        return [self.queue indexOfObject:properParentObject];
+        
+    } else if(lc < self.queue.count){
+        //左孩子存在 返回左孩子
+        return lc;
+    }
+    return index;
 }
 
 /**
@@ -262,7 +291,7 @@ typedef id<ADAlertControllerPriorityQueueProtocol> (^SearchProperParentBlock)(id
     }
     id firstObject = [ADAlertControllerPriorityQueue shareInstance].queue.firstObject;
     if ([ADAlertControllerPriorityQueue shareInstance].queue.count == 1) {
-        [[ADAlertControllerPriorityQueue shareInstance].queue removeObjectAtIndex:0];
+        [[ADAlertControllerPriorityQueue shareInstance].queue removeLastObject];
     }else{
         id lastObject = [ADAlertControllerPriorityQueue shareInstance].queue.lastObject;
         [[ADAlertControllerPriorityQueue shareInstance].queue removeLastObject];
@@ -430,11 +459,14 @@ typedef id<ADAlertControllerPriorityQueueProtocol> (^SearchProperParentBlock)(id
     [self alertController_viewDidDisappear:animated];
 }
 
-+ (BOOL)isShowUIAlertController
++ (BOOL)isShowBlackListController
 {
     UIViewController *topVisibleVC = [UIViewController ad_topVisibleViewController];
-    if ([topVisibleVC isKindOfClass:[UIAlertController class]]) {
-        return YES;
+    NSArray *blackList = ADAlertController.blackClassList;
+    for (Class class in blackList) {
+        if ([topVisibleVC isKindOfClass:class]) {
+            return YES;
+        }
     }
     return NO;
 }
