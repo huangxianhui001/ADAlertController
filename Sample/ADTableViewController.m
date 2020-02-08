@@ -694,6 +694,107 @@
     
 }
 
+- (void)prorityQueueSample
+{
+    for (int i = 0; i < 10; i++) {
+        ADAlertControllerStyle style = i % 2 == 0 ? ADAlertControllerStyleAlert:ADAlertControllerStyleActionSheet;
+        ADAlertPriority alertPrority = [self alertProrityWithIndex:i];
+        
+        NSString *title = [NSString stringWithFormat:@"当前是第%d个插入的队列的,优先级是%@",i+1,[self alertProrityDescription:alertPrority]];
+        ADAlertController *alertController = [self alertControllerWithPreferredStyle:style title:title alertPrority:alertPrority];
+        [alertController enqueue];
+    }
+    
+}
+
+- (ADAlertPriority)alertProrityWithIndex:(int)index
+{
+    int mod = index % 3;
+    if (mod == 0) {
+        return ADAlertPriorityDefault;
+    }else if (mod == 1){
+        return ADAlertPriorityHight;
+    }else{
+        return ADAlertPriorityRequire;
+    }
+}
+
+- (NSString *)alertProrityDescription:(ADAlertPriority )alertPrority
+{
+    switch (alertPrority) {
+        case ADAlertPriorityDefault:
+            return @"Default";
+        case ADAlertPriorityHight:
+            return @"Hight";
+        case ADAlertPriorityRequire:
+            return @"Require";
+    }
+}
+
+- (ADAlertController *)alertControllerWithPreferredStyle:(ADAlertControllerStyle)style title:(NSString *)title alertPrority:(ADAlertPriority)prority
+{
+
+    ADAlertControllerConfiguration *config = [ADAlertControllerConfiguration defaultConfigurationWithPreferredStyle:style];
+    config.hidenWhenTapBackground = YES;
+    
+    switch (style) {
+        case ADAlertControllerStyleAlert:
+        {
+            ADAlertAction *cancelAction = [ADAlertAction actionWithTitle:@"取消" style:ADActionStyleCancel handler:^(__kindof ADAlertAction * _Nonnull action) {
+//                NSLog(@"点击了取消");
+            }];
+            
+            ADAlertAction *sureAction = [ADAlertAction actionWithTitle:@"确定" style:ADActionStyleDefault handler:^(__kindof ADAlertAction * _Nonnull action) {
+//                NSLog(@"点击了确定");
+            }];
+            
+            ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:config title:title message:nil actions:@[cancelAction,sureAction]];
+            alertView.alertPriority = prority;
+            return alertView;
+        }
+        default:{
+            ADAlertAction *cancelAction = [ADAlertAction actionWithTitle:@"取消" style:ADActionStyleCancel handler:^(__kindof ADAlertAction * _Nonnull action) {
+                NSLog(@"点击了取消");
+            }];
+            
+            ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:config title:title message:nil actions:nil];
+            //actionSheet 的取消按钮,需要这样设置
+            [alertView addActionSheetCancelAction:cancelAction];
+            alertView.alertPriority = prority;
+            return alertView;
+        }
+    }
+}
+
+- (void)targetViewControllerSample
+{
+    //添加五个控制器进入队列中,其中第三个的优先级最高,默认应该是优先显示第三个,但是第三个的 alertController 有设置targetViewController,若是此时 push 到一个新页面了,那么会自动隐藏,并显示下一个队列中的低优先级的警告框
+    for (int i = 0; i < 5; i++) {
+        ADAlertControllerStyle style = ADAlertControllerStyleAlert;
+        ADAlertPriority alertPrority = ADAlertPriorityDefault;
+        UIViewController *targetVC = nil;
+        NSString *title = [NSString stringWithFormat:@"当前是第%d个插入的队列的,优先级是%@",i+1,[self alertProrityDescription:alertPrority]];
+        
+        if (i == 2) {
+            alertPrority = ADAlertPriorityRequire;
+            targetVC = self;
+            title = [NSString stringWithFormat:@"当前是第%d个插入的队列的,优先级是%@,并有指定仅显示在当前页",i+1,[self alertProrityDescription:alertPrority]];
+        }
+        
+        ADAlertController *alertController = [self alertControllerWithPreferredStyle:style title:title alertPrority:alertPrority];
+        alertController.targetViewController = targetVC;
+        [alertController enqueue];
+    }
+    
+    //3 秒后会进入到一个新的页面
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIViewController *vc = [[UIViewController alloc] init];
+        vc.title = @"新的页面";
+        vc.view.backgroundColor = [UIColor redColor];
+        [self.navigationController pushViewController:vc animated:YES];
+    });
+}
+
 #pragma mark - get
 - (NSArray<ADTableViewData *> *)datasource
 {
@@ -762,6 +863,12 @@
         [temp addObject:data];
         //21.
         data = [ADTableViewData dataWithTitle:@"无边距风格的ActionSheet的应用" selector:NSStringFromSelector(@selector(sheetStyleSample))];
+        [temp addObject:data];
+        //22.
+        data = [ADTableViewData dataWithTitle:@"优先级的应用" selector:NSStringFromSelector(@selector(prorityQueueSample))];
+        [temp addObject:data];
+        //23.
+        data = [ADTableViewData dataWithTitle:@"指定在某个控制器显示" selector:NSStringFromSelector(@selector(targetViewControllerSample))];
         [temp addObject:data];
         
         _datasource = [temp copy];
