@@ -19,6 +19,9 @@
 #import "ADAlertWindow.h"
 #import "ADAlertControllerPriorityQueue.h"
 
+static NSArray<Class> *__blackList = nil;
+static NSObject *ADAlertControllerBlackListLock;
+
 @interface ADAlertController ()<ADAlertViewAlertStyleTransitionProtocol>
 @property (weak, nonatomic) ADAlertWindow *alertWindow;
 
@@ -59,6 +62,14 @@
 
 - (BOOL) willDealloc{
     return self.deleteWhenHiden;
+}
+
++ (void)initialize
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        ADAlertControllerBlackListLock = [[NSObject alloc] init];
+    });
 }
 
 - (instancetype)initWithOptions:(ADAlertControllerConfiguration *)configuration
@@ -122,6 +133,14 @@
     }
     self.buttons = [buttons copy];
     
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //配置黑名单
+        if (ADAlertController.blackClassList) {
+            ADAlertController.blackClassList = @[UIAlertController.class];
+        }
+    });
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -133,6 +152,7 @@
 }
 
 #pragma mark - public
+
 - (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField))configurationHandler {
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
     textField.borderStyle = UITextBorderStyleRoundedRect;
@@ -163,8 +183,6 @@
             //复位donotShow
             self.donotShow = NO;
             self.didDismissBlock(self);
-            //deleteWhenHiden 需放到 block后面
-            self.deleteWhenHiden = YES;
             return ;
         }
         //每次显示时,重置为 YES
@@ -193,11 +211,6 @@
 }
 
 #pragma mark - private
-
-- (BOOL)isShow
-{
-    return self.presentingViewController;
-}
 
 - (void)clearUp
 {
@@ -331,4 +344,27 @@
     
     return YES;
 }
+@end
+
+/// 配置黑名单,当最顶层的控制器是此类的实例时,不应显示 alertController,默认是配置 UIAlertController
+@implementation ADAlertController (ADBlackListController)
+
++ (NSArray<Class> *)blackClassList
+{
+    NSArray *arr;
+    @synchronized(ADAlertControllerBlackListLock)
+    {
+        arr = __blackList;
+    }
+    return arr;
+}
+
++ (void)setBlackClassList:(NSArray<Class> *)blackClassList
+{
+    @synchronized(ADAlertControllerBlackListLock)
+    {
+        __blackList = blackClassList;
+    }
+}
+
 @end

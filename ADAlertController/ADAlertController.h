@@ -41,11 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) ADAlertControllerConfiguration *configuration;
 
 /**
- 是否正在显示,仅在页面完全显示时才会为 YES,其余情况为 NO
- */
-@property (readonly, nonatomic) BOOL isShow;
-
-/**
  显示在 titlelabel 下面的详细文本信息
  */
 @property (nonatomic, nullable) NSString *message;
@@ -87,6 +82,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)addActionSheetCancelAction:(ADAlertAction *_Nullable)cancelAction;
 
+@end
+
+/// 全局配置黑名单,当最顶层的控制器是此类的实例时,不应显示 alertController,默认是配置 UIAlertController.class
+@interface ADAlertController (ADBlackListController)
+@property (nonatomic, strong,class) NSArray<Class> *blackClassList;
 @end
 
 NS_ASSUME_NONNULL_END
