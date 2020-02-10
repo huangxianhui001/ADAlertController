@@ -69,6 +69,10 @@ static NSObject *ADAlertControllerBlackListLock;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         ADAlertControllerBlackListLock = [[NSObject alloc] init];
+        //配置黑名单
+        if (!ADAlertController.blackClassList) {
+            ADAlertController.blackClassList = @[UIAlertController.class];
+        }
     });
 }
 
@@ -132,14 +136,6 @@ static NSObject *ADAlertControllerBlackListLock;
         action.viewController = self;
     }
     self.buttons = [buttons copy];
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        //配置黑名单
-        if (ADAlertController.blackClassList) {
-            ADAlertController.blackClassList = @[UIAlertController.class];
-        }
-    });
     
 }
 
