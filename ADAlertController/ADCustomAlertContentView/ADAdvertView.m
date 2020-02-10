@@ -149,7 +149,7 @@
     ADAlertController *alertController = [[ADAlertController alloc]initWithOptions:config title:nil message:nil actions:nil];
     alertController.maximumWidth = self.maxWidth;
    
-    alertController.alertViewContentView = self;
+    alertController.contentView = self;
     [self.heightAnchor constraintEqualToConstant:self.contentViewHeight].active = YES;
     self.alertController = alertController;
     

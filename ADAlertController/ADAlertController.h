@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  自定义内容视图,默认是nil,在 alert 类型时,是显示在 titlelab 上面,actionsheet 类型时,显示在 message 下面,外部需指定高度约束,
  默认写法:[contentView.heightAnchor constraintEqualToConstant:100].active = YES;宽度不得超过maximumWidth
  */
-@property (nonatomic, nullable) UIView *alertViewContentView;
+@property (nonatomic, nullable) UIView *contentView;
 
 /**
  允许显示的背景内容最大宽度
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/// 全局配置黑名单,当最顶层的控制器是此类的实例时,不应显示 alertController,默认是配置 UIAlertController.class
+/// 全局配置黑名单,当最顶层的控制器是此类的实例时,不应显示 alertController,默认是配置 UIAlertController.class.此名单仅在进入优先级队列中才支持
 @interface ADAlertController (ADBlackListController)
 @property (nonatomic, strong,class) NSArray<Class> *blackClassList;
 @end

@@ -60,7 +60,7 @@
     
     ADAlertController *alertViewController = [[ADAlertController alloc] initWithOptions:config title:nil message:nil actions:nil];
     
-    alertViewController.alertViewContentView = self;
+    alertViewController.contentView = self;
     [self.heightAnchor constraintEqualToConstant:self.contentViewHeight].active = YES;
     
     [alertViewController show];

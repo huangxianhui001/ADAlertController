@@ -45,7 +45,7 @@ static NSObject *ADAlertControllerBlackListLock;
 @implementation ADAlertController
 @dynamic view;
 @dynamic maximumWidth;
-@dynamic alertViewContentView;
+@dynamic contentView;
 @dynamic message;
 
 @synthesize moveoutScreen;
@@ -244,12 +244,12 @@ static NSObject *ADAlertControllerBlackListLock;
     self.view.maximumWidth = maximumWidth;
 }
 
-- (UIView *)alertViewContentView {
+- (UIView *)contentView {
     return self.view.contentView;
 }
 
-- (void)setAlertViewContentView:(UIView *)alertViewContentView {
-    self.view.contentView = alertViewContentView;
+- (void)setContentView:(UIView *)contentView {
+    self.view.contentView = contentView;
 }
 
 - (void)setTitle:(NSString *)title {
