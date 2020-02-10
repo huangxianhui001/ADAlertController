@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 可将多个 AlertAction 当做一个AlertAction 来处理, TODO
+/// 可将多个 AlertAction 当做一个AlertAction 来处理
 @interface ADAlertGroupAction : ADAlertAction
 
 @property (nonatomic, strong, readonly) NSArray<ADAlertAction *> *actions;
