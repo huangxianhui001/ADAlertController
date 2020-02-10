@@ -119,7 +119,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+    if (indexPath.row % 2 == 0) {
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+    }else{
+        cell.contentView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+    }
     cell.textLabel.text = self.datasource[indexPath.row].title;
     return cell;
 }
@@ -225,11 +229,11 @@
     config.showsSeparators = YES;
     config.messageTextInset = UIEdgeInsetsMake(0, 10, 20, 10);
 
-    ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:config title:@"这里是标题" message:@"可以将alertViewContentView属性赋值任何 UIView 子类对象,唯一要求是该子类 view 对象需要自己提供高度约束" actions:@[cancelAction,sureAction]];
+    ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:config title:@"这里是标题" message:@"可以将contentView属性赋值任何 UIView 子类对象,唯一要求是该子类 view 对象需要自己提供高度约束" actions:@[cancelAction,sureAction]];
     
     //添加自定义视图
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectZero];
-    alertView.alertViewContentView = mapView;
+    alertView.contentView = mapView;
     //须提供高度约束
     [mapView.heightAnchor constraintEqualToConstant:250].active = YES;
     
@@ -481,11 +485,11 @@
     config.showsSeparators = YES;
     config.messageTextInset = UIEdgeInsetsMake(0, 10, 20, 10);
 
-    ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:config title:@"这里是标题" message:@"可以将alertViewContentView属性赋值任何 UIView 子类对象,唯一要求是该子类 view 对象需要自己提供高度约束" actions:@[sureAction]];
+    ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:config title:@"这里是标题" message:@"可以将contentView属性赋值任何 UIView 子类对象,唯一要求是该子类 view 对象需要自己提供高度约束" actions:@[sureAction]];
     
     //添加自定义视图
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectZero];
-    alertView.alertViewContentView = mapView;
+    alertView.contentView = mapView;
     //须提供高度约束
     [mapView.heightAnchor constraintEqualToConstant:250].active = YES;
     
@@ -666,7 +670,7 @@
     
     //添加自定义视图
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectZero];
-    alertView.alertViewContentView = mapView;
+    alertView.contentView = mapView;
     //须提供高度约束
     [mapView.heightAnchor constraintEqualToConstant:250].active = YES;
     
@@ -795,6 +799,27 @@
     });
 }
 
+- (void)blackListSample
+{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"这里是一个警告框" message:@"我们在 2 秒后创建一个ADAlertController" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+           
+       }];
+    [alertController addAction:cancel];
+    [alertController addAction:sure];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+         ADAlertController *alertController = [self alertControllerWithPreferredStyle:ADAlertControllerStyleAlert title:@"这里是标题" alertPrority:ADAlertPriorityRequire];
+        [alertController enqueue];
+    });
+    
+}
+
 #pragma mark - get
 - (NSArray<ADTableViewData *> *)datasource
 {
@@ -870,7 +895,9 @@
         //23.
         data = [ADTableViewData dataWithTitle:@"指定在某个控制器显示" selector:NSStringFromSelector(@selector(targetViewControllerSample))];
         [temp addObject:data];
-        
+        //24
+        data = [ADTableViewData dataWithTitle:@"黑名单时不显示" selector:NSStringFromSelector(@selector(blackListSample))];
+        [temp addObject:data];
         _datasource = [temp copy];
     }return _datasource;
 }
