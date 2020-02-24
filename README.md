@@ -1,6 +1,6 @@
 ## 说明
 
-`ADAlertController` 是一个与` UIAlertController` 类似风格的 UI 控件,包含 `Alert` 和 `ActionSheet` 以及`无边距的 ActionSheet(ADAlertControllerStyleSheet)` 等 UI类型.与`UIAlertController` 有相似的 API.并支持以下扩展功能:
+`ADAlertController` 是一个与` UIAlertController` 类似风格的 UI 控件,包含 `Alert` 和 `ActionSheet` 以及`无边距的 ActionSheet(ADAlertControllerStyleSheet)` 等 UI类型.与`UIAlertController` 有相似的 API.支持 iOS9+.并支持以下扩展功能:
 
 - 支持添加自定义视图元素
 - 多种`AlertAction`可供选择,并容易扩展实现新的 `AlertAction` UI样式
@@ -8,7 +8,39 @@
   - 支持仅在某些特定的控制器上显示
   - 支持设置黑名单
 
+## 演示
+
+![Demo 1](images/demo-01.gif)
+
+![Demo 2](images/demo-02.gif)
+
+![Demo 3](images/demo-03.gif)
+
+![Demo 4](images/demo-04.gif)
+
+![Demo 5](images/demo-05.gif)
+
+![Demo 6](images/demo-06.gif)
+
 ## 使用
+
+针对演示图片中的第一张图出现的第一个例子为例,初始化代码如下:
+
+```objc
+		ADAlertAction *cancelAction = [ADAlertAction actionWithTitle:@"取消" style:ADActionStyleCancel handler:^(__kindof ADAlertAction * _Nonnull action) {
+        NSLog(@"点击了取消");
+    }];
+    
+    ADAlertAction *sureAction = [ADAlertAction actionWithTitle:@"确定" style:ADActionStyleDefault handler:^(__kindof ADAlertAction * _Nonnull action) {
+        NSLog(@"点击了确定");
+    }];
+    
+    ADAlertController *alertView = [[ADAlertController alloc] initWithOptions:nil title:@"这里是标题" message:nil actions:@[cancelAction,sureAction]];
+    [alertView show];
+    
+```
+
+
 
 ### 1.初始化
 
