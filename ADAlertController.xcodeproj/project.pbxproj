@@ -145,14 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				F6AAF12723E72BE600607F9B /* ADCustomAlertContentView */,
-				F6AAF0F323E5F1A600607F9B /* Transition */,
-				F6AAF0EC23E5EDC900607F9B /* Category */,
 				F6AAF0D623E5D06200607F9B /* Private */,
 				F6AAF0CC23E4900500607F9B /* ADTAlertAction */,
 				F6AAF0C923E48FA100607F9B /* ADAlertController.h */,
 				F6AAF0CA23E48FA100607F9B /* ADAlertController.m */,
-				F6AAF11E23E605F600607F9B /* ADAlertController+TransitioningDelegate.h */,
-				F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */,
 				F6AAF11B23E6001D00607F9B /* ADAlertControllerPriorityQueue.h */,
 				F6AAF11C23E6001D00607F9B /* ADAlertControllerPriorityQueue.m */,
 				F6AAF13523EC4ABA00607F9B /* ADPriorityQueueProtocol.h */,
@@ -208,23 +204,15 @@
 		F6AAF0D623E5D06200607F9B /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				F6AAF11223E5FA4600607F9B /* ADActionSheetView.h */,
-				F6AAF11323E5FA4600607F9B /* ADActionSheetView.m */,
-				F6AAF0D723E5D08000607F9B /* ADAlertAction+Private.h */,
-				F6AAF0DA23E5D68500607F9B /* ADAlertButton.h */,
-				F6AAF0DB23E5D68500607F9B /* ADAlertButton.m */,
-				F6AAF10623E5F7B100607F9B /* ADAlertControllerViewProtocol.h */,
-				F6AAF0E323E5E6B900607F9B /* ADAlertGroupAction+Private.h */,
-				F6AAF10F23E5F91100607F9B /* ADAlertTextView.h */,
-				F6AAF11023E5F91100607F9B /* ADAlertTextView.m */,
-				F6AAF10C23E5F8C100607F9B /* ADAlertTitleLabel.h */,
-				F6AAF10D23E5F8C100607F9B /* ADAlertTitleLabel.m */,
-				F6AAF10923E5F86400607F9B /* ADAlertView.h */,
-				F6AAF10A23E5F86400607F9B /* ADAlertView.m */,
+				F6AAF0EC23E5EDC900607F9B /* Category */,
+				F6AAF0F323E5F1A600607F9B /* Transition */,
+				F6B4C1E4240560EB00CCA8A3 /* Views */,
 				F6AAF11523E5FD2200607F9B /* ADAlertWindow.h */,
 				F6AAF11623E5FD2200607F9B /* ADAlertWindow.m */,
 				F6AAF13D23ED91A100607F9B /* ADAlertController+Private.h */,
 				F6AAF13E23ED91A100607F9B /* ADAlertController+Private.m */,
+				F6AAF11E23E605F600607F9B /* ADAlertController+TransitioningDelegate.h */,
+				F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -267,6 +255,26 @@
 				F6AAF13323EB0EBD00607F9B /* ADPickerView.xib */,
 			);
 			path = ADCustomAlertContentView;
+			sourceTree = "<group>";
+		};
+		F6B4C1E4240560EB00CCA8A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F6AAF11223E5FA4600607F9B /* ADActionSheetView.h */,
+				F6AAF11323E5FA4600607F9B /* ADActionSheetView.m */,
+				F6AAF0D723E5D08000607F9B /* ADAlertAction+Private.h */,
+				F6AAF0DA23E5D68500607F9B /* ADAlertButton.h */,
+				F6AAF0DB23E5D68500607F9B /* ADAlertButton.m */,
+				F6AAF10623E5F7B100607F9B /* ADAlertControllerViewProtocol.h */,
+				F6AAF0E323E5E6B900607F9B /* ADAlertGroupAction+Private.h */,
+				F6AAF10F23E5F91100607F9B /* ADAlertTextView.h */,
+				F6AAF11023E5F91100607F9B /* ADAlertTextView.m */,
+				F6AAF10C23E5F8C100607F9B /* ADAlertTitleLabel.h */,
+				F6AAF10D23E5F8C100607F9B /* ADAlertTitleLabel.m */,
+				F6AAF10923E5F86400607F9B /* ADAlertView.h */,
+				F6AAF10A23E5F86400607F9B /* ADAlertView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alan.ADAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,6 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alan.ADAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
