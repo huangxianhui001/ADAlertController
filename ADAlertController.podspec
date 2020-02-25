@@ -28,9 +28,6 @@ Pod::Spec.new do |spec|
                    DESC
 
   spec.homepage     = "https://github.com/huangxianhui001/ADAlertController"
-  spec.screenshots  = "https://github.com/huangxianhui001/ADAlertController/blob/master/images/demo-01.gif", "https://github.com/huangxianhui001/ADAlertController/blob/master/images/demo-02.gif",
-"https://github.com/huangxianhui001/ADAlertController/blob/master/images/demo-03.gif", "https://github.com/huangxianhui001/ADAlertController/blob/master/images/demo-04.gif",
-"https://github.com/huangxianhui001/ADAlertController/blob/master/images/demo-05.gif", "https://github.com/huangxianhui001/ADAlertController/blob/master/images/demo-06.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
