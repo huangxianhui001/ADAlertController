@@ -44,7 +44,7 @@
 
 - (BOOL)isShow
 {
-    return self.presentingViewController;
+    return !!self.presentingViewController;
 }
 
 - (void)setDonotShow:(BOOL)donotShow
