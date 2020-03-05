@@ -128,6 +128,7 @@
 			children = (
 				F6AAF0C723E48E4C00607F9B /* Sample */,
 				F6AAF0C823E48E8100607F9B /* Resource */,
+				F6AAF12723E72BE600607F9B /* ADCustomAlertContentView */,
 				F6AAF0AD23E48B3100607F9B /* ADAlertController */,
 				F6AAF0AC23E48B3100607F9B /* Products */,
 			);
@@ -144,7 +145,6 @@
 		F6AAF0AD23E48B3100607F9B /* ADAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				F6AAF12723E72BE600607F9B /* ADCustomAlertContentView */,
 				F6AAF0D623E5D06200607F9B /* Private */,
 				F6AAF0CC23E4900500607F9B /* ADTAlertAction */,
 				F6AAF0C923E48FA100607F9B /* ADAlertController.h */,
@@ -516,9 +516,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 100;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZQYVZVFRLZ;
 				INFOPLIST_FILE = Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -528,7 +529,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alan.ADAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = XCWidlcard_profiler;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -537,9 +538,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 100;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZQYVZVFRLZ;
 				INFOPLIST_FILE = Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -549,7 +551,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alan.ADAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = XCWidlcard_profiler;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
