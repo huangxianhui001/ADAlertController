@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 优先级队列需要用到的,但是又不便公开的属性,放到此私有文件中
-@interface ADAlertController (Private)
+@interface ADAlertController ()
 
 /// 在 alertController执行完 dismiss 之后调用的 block,用于通知优先级队列准备去显示下一个队列中的内容
 @property (copy, nonatomic,nullable) void(^didDismissBlock)(ADAlertController * _Nonnull alertController);
