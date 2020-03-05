@@ -22,6 +22,22 @@
 
 ![Demo 6](images/demo-06.gif)
 
+## 安装
+
+1. 使用`CocoaPods`:
+
+   在`Podfile`中添加以下语句
+
+   `pod ‘ADAlertController’`
+
+2. 手动安装:
+
+   下载仓库代码,将`ADAlertController`文件夹下所有的文件拖到你的项目工程中
+
+   PS:`ADCustomAlertContentView`文件夹并非`ADAlertController`要求的源码,而是实现自定义内容视图的一点建议.若有其他更好的用法,欢迎提供意见.
+
+**若在使用过程中有任何问题,欢迎提`Issue`**
+
 ## 使用
 
 针对演示图片中的第一张图出现的第一个例子为例,初始化代码如下:
