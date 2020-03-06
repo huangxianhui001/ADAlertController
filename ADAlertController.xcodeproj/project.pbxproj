@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4E5DD324124F8A00189726 /* ADAlertController+KeyboardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4E5DD224124F8A00189726 /* ADAlertController+KeyboardSupport.m */; };
 		F6AAF0B023E48B3100607F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AAF0AF23E48B3100607F9B /* AppDelegate.m */; };
 		F6AAF0B923E48B3100607F9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF0B723E48B3100607F9B /* Main.storyboard */; };
 		F6AAF0BB23E48B3600607F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6AAF0BA23E48B3600607F9B /* Assets.xcassets */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE4E5DD124124F8A00189726 /* ADAlertController+KeyboardSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADAlertController+KeyboardSupport.h"; sourceTree = "<group>"; };
+		DE4E5DD224124F8A00189726 /* ADAlertController+KeyboardSupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ADAlertController+KeyboardSupport.m"; sourceTree = "<group>"; };
 		F6AAF0AB23E48B3100607F9B /* ADAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6AAF0AE23E48B3100607F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6AAF0AF23E48B3100607F9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				F6AAF13E23ED91A100607F9B /* ADAlertController+Private.m */,
 				F6AAF11E23E605F600607F9B /* ADAlertController+TransitioningDelegate.h */,
 				F6AAF11F23E605F600607F9B /* ADAlertController+TransitioningDelegate.m */,
+				DE4E5DD124124F8A00189726 /* ADAlertController+KeyboardSupport.h */,
+				DE4E5DD224124F8A00189726 /* ADAlertController+KeyboardSupport.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				F6AAF0CB23E48FA100607F9B /* ADAlertController.m in Sources */,
 				F6AAF0F623E5F1C000607F9B /* ADAlertViewAlertStyleTransition.m in Sources */,
 				F6AAF11D23E6001D00607F9B /* ADAlertControllerPriorityQueue.m in Sources */,
+				DE4E5DD324124F8A00189726 /* ADAlertController+KeyboardSupport.m in Sources */,
 				F6AAF13223EB0EAA00607F9B /* ADPickerView.m in Sources */,
 				F6AAF12323E6F78300607F9B /* ADTableViewController.m in Sources */,
 				F6AAF0F223E5F0F400607F9B /* UIViewController+ADAlertControllerTopVisible.m in Sources */,

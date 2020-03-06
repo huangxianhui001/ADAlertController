@@ -18,6 +18,7 @@
 #import "ADAlertGroupAction+Private.h"
 #import "ADAlertWindow.h"
 #import "ADAlertControllerPriorityQueue.h"
+#import "ADAlertController+KeyboardSupport.h"
 
 static NSArray<Class> *__blackList = nil;
 static NSObject *ADAlertControllerBlackListLock;
@@ -57,6 +58,7 @@ static NSObject *ADAlertControllerBlackListLock;
 
 - (void)dealloc
 {
+    [self removeObserverKeyboardNotification];
     NSLog(@"%@ delloc",NSStringFromClass(self.class));
 }
 
@@ -137,6 +139,7 @@ static NSObject *ADAlertControllerBlackListLock;
     }
     self.buttons = [buttons copy];
     
+    [self addObserverKeyboardNotification];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

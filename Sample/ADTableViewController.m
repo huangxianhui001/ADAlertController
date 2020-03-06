@@ -428,6 +428,21 @@
         textField.delegate = self;
 
     }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField * _Nullable textField) {
+        textField.secureTextEntry = YES;
+        textField.placeholder = @"请输入手机号";
+        textField.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        textField.delegate = self;
+
+    }];
+    [alertView addTextFieldWithConfigurationHandler:^(UITextField * _Nullable textField) {
+        textField.secureTextEntry = YES;
+        textField.placeholder = @"请输入邮箱";
+        textField.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        textField.delegate = self;
+        
+    }];
+    
     self.alertController = alertView;
     self.sureAction = sureAction;
     [alertView show];
